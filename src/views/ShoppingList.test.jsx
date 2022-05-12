@@ -39,5 +39,10 @@ describe('Should test the app', () => {
     userEvent.type(editForm, 'new list item');
     userEvent.click(saveButton);
     expect(items[0]).toHaveTextContent(/new list item/i);
+
+    const deleteButtons = screen.getAllByLabelText('delete-item-button');
+    userEvent.click(deleteButtons[0]);
+    const newItems = screen.getAllByRole('list');
+    expect(newItems[0].children).toHaveLength(0);
   });
 });
