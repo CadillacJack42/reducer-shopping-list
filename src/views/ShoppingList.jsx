@@ -28,7 +28,7 @@ export const ShoppingList = () => {
       <ol>
         {list.map((item) => {
           return (
-            <li key={item.id}>
+            <li key={item.id} style={{ listStyleType: 'none' }}>
               <ListItem itemObj={item} />
             </li>
           );

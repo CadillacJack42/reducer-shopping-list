@@ -1,5 +1,6 @@
 import { useData } from '../hooks/useData';
 import { useState } from 'react';
+import styles from './ListItem.css';
 
 export const ListItem = ({ itemObj }) => {
   const { handleEdit, handleDelete } = useData();
@@ -46,7 +47,7 @@ export const ListItem = ({ itemObj }) => {
     );
   }
   return (
-    <>
+    <div className={styles['li-elements']}>
       <input
         aria-label="item-checkbox"
         type="checkbox"
@@ -58,6 +59,7 @@ export const ListItem = ({ itemObj }) => {
           });
         }}
       ></input>
+
       {display}
       <button
         aria-label="delete-item-button"
@@ -66,6 +68,6 @@ export const ListItem = ({ itemObj }) => {
       >
         Delete Item
       </button>
-    </>
+    </div>
   );
 };
