@@ -13,11 +13,20 @@ export const ListContext = createContext(null);
 const listReducer = (state, action) => {
   switch (action.type) {
     case 'EDIT':
-      return 'edited';
+      return state.map((item) => {
+        if (item.id === action.payload.item.id) {
+          const { purchased, item } = action.payload.item;
+        }
+
+        return item;
+      });
     case 'DELETE':
-      return 'deleted';
+      return state.filter((item) => item.id !== action.payload.id);
     case 'ADD':
-      return 'added';
+      return [
+        { id: Date.now(), item: action.payload.newItem, purchased: false },
+        ...state,
+      ];
 
     default:
       throw new Error('Unhandled action');
