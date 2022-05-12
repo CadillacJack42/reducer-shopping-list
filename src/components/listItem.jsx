@@ -10,12 +10,14 @@ export const ListItem = ({ item }) => {
   if (editing) {
     display = (
       <form
+        aria-label="edit-form"
         onSubmit={(e) => {
           e.preventDefault();
           setEditing(false);
         }}
       >
         <input
+          aria-label="edit-form-input"
           value={item.item}
           onChange={(e) => {
             handleEdit({
@@ -24,14 +26,20 @@ export const ListItem = ({ item }) => {
             });
           }}
         />
-        <button type="submit">Save</button>
+        <button aria-label="edit-form-button" type="submit">
+          Save
+        </button>
       </form>
     );
   } else {
     display = (
       <>
-        <p>{item.item}</p>
-        <button type="button" onClick={() => setEditing(true)}>
+        <p aria-label="item-name">{item.item}</p>
+        <button
+          aria-label="begin-edit-button"
+          type="button"
+          onClick={() => setEditing(true)}
+        >
           Edit Item
         </button>
       </>
@@ -40,6 +48,7 @@ export const ListItem = ({ item }) => {
   return (
     <>
       <input
+        aria-label="item-checkbox"
         type="checkbox"
         checked={item.puchased}
         onChange={(e) => {
@@ -50,7 +59,11 @@ export const ListItem = ({ item }) => {
         }}
       ></input>
       {display}
-      <button type="button" onClick={() => handleDelete(item.id)}>
+      <button
+        aria-label="delete-item-button"
+        type="button"
+        onClick={() => handleDelete(item.id)}
+      >
         Delete Item
       </button>
     </>
