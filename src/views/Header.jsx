@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <>
       <h1>Welcome to Cadillac Jacks Reducer Shopping List</h1>
-      <h3>Items in cart: {list.length}</h3>
+      <h4>Items in cart: {list.length}</h4>
     </>
   );
 };

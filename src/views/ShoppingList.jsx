@@ -1,3 +1,14 @@
+import { useData } from '../hooks/useData';
+
 export const ShoppingList = () => {
-  return <h2>I'm the Shopping List</h2>;
+  const { list } = useData();
+  return (
+    <>
+      <ol>
+        {list.map((item) => {
+          return <li key={item.id}>{item.item}</li>;
+        })}
+      </ol>
+    </>
+  );
 };
