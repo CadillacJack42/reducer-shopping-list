@@ -8,7 +8,7 @@ let initialState = [
   },
 ];
 
-const ListContext = createContext(null);
+export const ListContext = createContext(null);
 
 const listReducer = (state, action) => {
   switch (action.type) {
