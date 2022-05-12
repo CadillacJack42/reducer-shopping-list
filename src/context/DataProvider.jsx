@@ -27,6 +27,8 @@ const listReducer = (state, action) => {
         { id: Date.now(), item: action.payload.newItem, purchased: false },
         ...state,
       ];
+    case 'CLEAR':
+      return (state = []);
 
     default:
       throw new Error('Unhandled action');
@@ -48,8 +50,14 @@ export const DataProvider = ({ children }) => {
     dispatch({ type: 'ADD', payload: { newItem } });
   };
 
+  const handleClear = () => {
+    dispatch({ type: 'CLEAR' });
+  };
+
   return (
-    <ListContext.Provider value={{ list, handleAdd, handleDelete, handleEdit }}>
+    <ListContext.Provider
+      value={{ list, handleAdd, handleDelete, handleEdit, handleClear }}
+    >
       {children}
     </ListContext.Provider>
   );
