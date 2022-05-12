@@ -1,9 +1,11 @@
+import { useData } from '../hooks/useData';
+
 export const Header = () => {
-  //   return <h1>I'm a Header</h1>;
+  const { list } = useData();
   return (
     <>
       <h1>Welcome to Cadillac Jacks Reducer Shopping List</h1>
-      <h3>Items in cart: </h3>
+      <h3>Items in cart: {list.length}</h3>
     </>
   );
 };
