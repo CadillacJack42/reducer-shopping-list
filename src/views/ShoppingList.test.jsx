@@ -44,5 +44,26 @@ describe('Should test the app', () => {
     userEvent.click(deleteButtons[0]);
     const newItems = screen.getAllByRole('list');
     expect(newItems[0].children).toHaveLength(0);
+
+    // const addInput = screen.getByLabelText('add-input');
+    // const addButton = screen.getByLabelText('add-submit-button');
+    // userEvent.type(addInput, 'New Item');
+    // userEvent.click(addButton);
+    // const listItems = await screen.findAllByRole('listitem');
+    // expect(listItems).toHaveLength(2);
+  });
+
+  it('Should add a new item to the list', async () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+    const addInput = screen.getByLabelText('add-input');
+    const addButton = screen.getByLabelText('add-submit-button');
+    userEvent.type(addInput, 'New Item');
+    userEvent.click(addButton);
+    const listItems = await screen.findAllByRole('listitem');
+    expect(listItems).toHaveLength(2);
   });
 });

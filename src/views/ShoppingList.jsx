@@ -17,7 +17,11 @@ export const ShoppingList = () => {
       >
         <label htmlFor="add">
           Add Item to Shopping List:{' '}
-          <input value={newItem} onChange={(e) => setNewItem(e.target.value)} />
+          <input
+            aria-label="add-input"
+            value={newItem}
+            onChange={(e) => setNewItem(e.target.value)}
+          />
         </label>
         <button aria-label="add-submit-button">Add Item</button>
       </form>
