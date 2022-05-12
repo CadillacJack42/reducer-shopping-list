@@ -18,8 +18,7 @@ const listReducer = (state, action) => {
           const { purchased, item } = action.payload.item;
           return { ...singleItem, purchased, item };
         }
-
-        return item;
+        return singleItem;
       });
     case 'DELETE':
       return state.filter((item) => item.id !== action.payload.id);

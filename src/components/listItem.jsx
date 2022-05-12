@@ -1,7 +1,7 @@
 import { useData } from '../hooks/useData';
 import { useState } from 'react';
 
-export const ListItem = ({ item }) => {
+export const ListItem = ({ itemObj }) => {
   const { handleEdit, handleDelete } = useData();
   const [editing, setEditing] = useState(false);
 
@@ -18,10 +18,10 @@ export const ListItem = ({ item }) => {
       >
         <input
           aria-label="edit-form-input"
-          value={item.item}
+          value={itemObj.item}
           onChange={(e) => {
             handleEdit({
-              ...item,
+              ...itemObj,
               item: e.target.value,
             });
           }}
@@ -34,7 +34,7 @@ export const ListItem = ({ item }) => {
   } else {
     display = (
       <>
-        <p aria-label="item-name">{item.item}</p>
+        <p aria-label="item-name">{itemObj.item}</p>
         <button
           aria-label="begin-edit-button"
           type="button"
@@ -50,10 +50,10 @@ export const ListItem = ({ item }) => {
       <input
         aria-label="item-checkbox"
         type="checkbox"
-        checked={item.puchased}
+        checked={itemObj.puchased}
         onChange={(e) => {
           handleEdit({
-            ...item,
+            ...itemObj,
             purchased: e.target.checked,
           });
         }}
@@ -62,7 +62,7 @@ export const ListItem = ({ item }) => {
       <button
         aria-label="delete-item-button"
         type="button"
-        onClick={() => handleDelete(item.id)}
+        onClick={() => handleDelete(itemObj.id)}
       >
         Delete Item
       </button>
