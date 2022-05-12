@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ListContext } from '../context/DataProvider';
 
-const useData = () => {
+export const useData = () => {
   const context = useContext(ListContext);
 
   if (context === null) {
