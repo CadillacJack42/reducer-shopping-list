@@ -1,5 +1,5 @@
 import { useData } from '../hooks/useData';
-import { ListItem } from '../components/listItem';
+import { ListItem } from '../components/ListItem';
 
 export const ShoppingList = () => {
   const { list } = useData();

@@ -1,7 +1,7 @@
 import { useData } from '../hooks/useData';
 
 export const ListItem = ({ item }) => {
-  const { handleEdit } = useData();
+  const { handleEdit, handleDelete } = useData();
   return (
     <>
       <input
@@ -15,7 +15,9 @@ export const ListItem = ({ item }) => {
         }}
       ></input>
       {item.item}
-      <button>I'm A Button</button>
+      <button type="button" onClick={() => handleDelete(item.id)}>
+        Delete Item
+      </button>
     </>
   );
 };
