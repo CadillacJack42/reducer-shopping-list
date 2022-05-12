@@ -2,7 +2,7 @@ import { createContext, useReducer } from 'react';
 
 let initialState = [
   {
-    id: Date().now(),
+    id: Date.now(),
     purchased: false,
     item: "I'm a shopping list item. Feel free to delete or edit me, and don't forget the milk!",
   },
