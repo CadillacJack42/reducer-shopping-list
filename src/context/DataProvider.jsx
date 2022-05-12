@@ -13,9 +13,10 @@ export const ListContext = createContext(null);
 const listReducer = (state, action) => {
   switch (action.type) {
     case 'EDIT':
-      return state.map((item) => {
-        if (item.id === action.payload.item.id) {
+      return state.map((singleItem) => {
+        if (singleItem.id === action.payload.item.id) {
           const { purchased, item } = action.payload.item;
+          return { ...singleItem, purchased, item };
         }
 
         return item;

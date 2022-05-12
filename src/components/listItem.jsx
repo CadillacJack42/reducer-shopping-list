@@ -1,6 +1,7 @@
-import { handleEdit } from '../context/DataProvider';
+import { useData } from '../hooks/useData';
 
-export const listItem = (item) => {
+export const ListItem = ({ item }) => {
+  const { handleEdit } = useData();
   return (
     <>
       <input
@@ -13,7 +14,7 @@ export const listItem = (item) => {
           });
         }}
       ></input>
-      {item}
+      {item.item}
       <button>I'm A Button</button>
     </>
   );

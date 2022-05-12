@@ -1,4 +1,5 @@
 import { useData } from '../hooks/useData';
+import { ListItem } from '../components/listItem';
 
 export const ShoppingList = () => {
   const { list } = useData();
@@ -6,7 +7,11 @@ export const ShoppingList = () => {
     <>
       <ol>
         {list.map((item) => {
-          return <li key={item.id}>{item.item}</li>;
+          return (
+            <li key={item.id}>
+              <ListItem item={item} />
+            </li>
+          );
         })}
       </ol>
     </>
