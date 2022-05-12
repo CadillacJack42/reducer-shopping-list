@@ -46,7 +46,7 @@ describe('Should test the app', () => {
     expect(newItems[0].children).toHaveLength(0);
   });
 
-  it('Should add a new item to the list', async () => {
+  it('Should add a new item to the list, then clear the list', async () => {
     render(
       <MemoryRouter>
         <App />
@@ -58,5 +58,10 @@ describe('Should test the app', () => {
     userEvent.click(addButton);
     const listItems = await screen.findAllByRole('listitem');
     expect(listItems).toHaveLength(2);
+
+    const clearButton = screen.getByLabelText('clear-list-button');
+    userEvent.click(clearButton);
+    const newItems = screen.getAllByRole('list');
+    expect(newItems[0].children).toHaveLength(0);
   });
 });
