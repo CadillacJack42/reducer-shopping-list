@@ -29,5 +29,15 @@ describe('Should test the app', () => {
     expect(checkBoxes[0].checked).toBe(false);
     userEvent.click(checkBoxes[0]);
     expect(checkBoxes[0].checked).toBe(true);
+
+    const items = screen.getAllByRole('listitem');
+    expect(items[0]).toHaveTextContent(/i'm a shopping list item/i);
+    const editButtons = screen.getAllByLabelText('begin-edit-button');
+    userEvent.click(editButtons[0]);
+    const saveButton = screen.getByLabelText('edit-form-button');
+    const editForm = screen.getByLabelText('edit-form-input');
+    userEvent.type(editForm, 'new list item');
+    userEvent.click(saveButton);
+    expect(items[0]).toHaveTextContent(/new list item/i);
   });
 });
