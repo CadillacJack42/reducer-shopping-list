@@ -1,6 +1,6 @@
 import { useData } from '../hooks/useData';
 import { useState } from 'react';
-import styles from './ListItem.css';
+import styles from '../ListItem.css';
 
 export const ListItem = ({ itemObj }) => {
   const { handleEdit, handleDelete } = useData();

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useData } from '../hooks/useData';
-import { ListItem } from '../components/ListItem.jsx';
+import { ListItem } from '../components/ListItem';
 
 export const ShoppingList = () => {
   const [newItem, setNewItem] = useState('');
